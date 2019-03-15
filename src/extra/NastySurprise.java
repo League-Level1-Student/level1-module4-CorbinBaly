@@ -26,7 +26,10 @@ public class NastySurprise implements MouseListener {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+			JLabel clicked = (JLabel) e.getSource();		
+			if(trick==clicked) {
+				System.out.println("trick");
+			}
 		}
 		@Override
 		public void mousePressed(MouseEvent e) {
