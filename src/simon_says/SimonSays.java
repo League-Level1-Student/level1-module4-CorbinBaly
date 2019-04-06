@@ -61,7 +61,7 @@ public class SimonSays extends KeyAdapter {
 		pointframe.setVisible(true);
 		pointlabel.setText(String.valueOf(points));
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-		if ((e.getKeyCode() == imageIndex) && simonSays) {
+		if ((e.getKeyCode()() == imageIndex) && simonSays) {
 
 			// 17. Increase the value of score
 			points++;
@@ -84,7 +84,7 @@ public class SimonSays extends KeyAdapter {
 			speak("Wrong");
 		}
 		// 25. If tries is greater than 9 (or however many you want)...
-		if (tries >= 9) {
+		if (tries == 9) {
 
 			// 26. Tell the user their score
 JOptionPane.showMessageDialog(null, points);
