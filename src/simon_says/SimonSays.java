@@ -61,7 +61,7 @@ public class SimonSays extends KeyAdapter {
 		pointframe.setVisible(true);
 		pointlabel.setText(String.valueOf(points));
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-		if ((e.getKeyCode()() == imageIndex) && simonSays) {
+		if ((e.getKeyCode() == imageIndex) && simonSays) {
 
 			// 17. Increase the value of score
 			points++;

@@ -2,6 +2,8 @@ package extra;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -53,6 +55,7 @@ public class NastySurprise implements MouseListener {
 			System.out.println("treat");
 			scarypanel.setVisible(true);
 			frame.pack();
+			playMusicOnComputer("Jumpscare Sound Effect.mp3");
 		}
 	}
 
@@ -85,4 +88,13 @@ public class NastySurprise implements MouseListener {
 		Icon icon = new ImageIcon(imageURL);
 		return new JLabel(icon);
 	}
+	public void playMusicOnComputer(String fileName) {
+		File fileToPlay = new File(fileName);
+		try {
+			java.awt.Desktop.getDesktop().open(fileToPlay);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+
 }

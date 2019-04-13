@@ -64,6 +64,9 @@ public class Jeopardy implements ActionListener {
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
 		secondButton = createButton("400");
+		thirdButton = createButton("600");
+		fourthButton = createButton("800");
+		fifthButton = createButton("1000");
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
@@ -100,19 +103,19 @@ public class Jeopardy implements ActionListener {
 		// Increment the buttonCount (this should make the layout vertical)
 		buttonCount++;
 		// Return your new button instead of the temporary button
-		return new JButton("button");
+		return (button);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
 		// Remove this temporary message after testing:
-		JOptionPane.showMessageDialog(null, "pressed " + ((JButton) e.getSource()).getText() + " button");
+		JOptionPane.showMessageDialog(null, "" + ((JButton) e.getSource()).getText() + "");
 
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
 		if (firstButton == buttonPressed) {
 			// Call the askQuestion() method
-			askQuestion("Random Question", "Random Answer", 200);
+			askQuestion("What does the MCU stand for?", "Marvel Cinematic Universe", 200);
 
 			// Complete the code in the askQuestion() method. When you play the game, the
 			// score should change
@@ -123,7 +126,7 @@ public class Jeopardy implements ActionListener {
 		else if (buttonPressed == secondButton) {
 
 			// Call the askQuestion() method with a harder question
-			askQuestion("Second Question", "Second Answer", 400);
+			askQuestion("What is Captain America's real name?", "Steve Rogers", 400);
 			// Clear the text on the button that was pressed (set the button text to
 			// nothing)
 			secondButton.setText("");
