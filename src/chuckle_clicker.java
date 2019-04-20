@@ -24,7 +24,6 @@ public class chuckle_clicker implements ActionListener {
 		punchline.setText("Punchline");
 		punchline.addActionListener(this);
 		joke.addActionListener(this);
-		
 		frame.add(panel);
 		panel.add(joke);
 		panel.add(punchline);
