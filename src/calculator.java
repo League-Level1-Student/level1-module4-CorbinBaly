@@ -33,7 +33,8 @@ public class calculator implements MouseListener {
 		fieldone = new JTextField(9);
 		fieldtwo = new JTextField(9);
 		panel.add(result);
-		result.setText(text);
+		//result.setText(text);
+		//dfsdf
 		panel.add(fieldone);
 		panel.add(fieldtwo);
 		add.setText("add");
