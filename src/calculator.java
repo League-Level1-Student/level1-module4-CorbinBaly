@@ -15,7 +15,8 @@ public class calculator implements MouseListener {
 	JButton mul = new JButton();
 	JButton div = new JButton();
 	JFrame frame = new JFrame();
-	JLabel result;
+	JLabel result= new JLabel();
+	String numb = "";
 	int resultnumber = 0;
 	JTextField fieldone;
 	JTextField fieldtwo;
@@ -33,8 +34,8 @@ public class calculator implements MouseListener {
 		fieldone = new JTextField(9);
 		fieldtwo = new JTextField(9);
 		panel.add(result);
-		//result.setText(text);
-		//dfsdf
+		result.setText(""+resultnumber);
+		result.setSize(6, 6);
 		panel.add(fieldone);
 		panel.add(fieldtwo);
 		add.setText("add");
@@ -52,7 +53,7 @@ public class calculator implements MouseListener {
 		sub.addMouseListener(this);
 		mul.addMouseListener(this);
 		div.addMouseListener(this);
-
+		frame.pack();
 	}
 
 	public void add() {
@@ -77,8 +78,10 @@ public class calculator implements MouseListener {
 		JButton clicked = (JButton) e.getSource();
 		firstnumb = Integer.parseInt(fieldone.getText());
 		secondnumb = Integer.parseInt(fieldtwo.getText());
-		System.out.println(firstnumb);
-		System.out.println(secondnumb);
+		//System.out.println(firstnumb);
+		//System.out.println(secondnumb);
+		System.out.println(resultnumber);
+		result.setText(""+resultnumber);
 if(clicked==add) {
 	add();
 }
