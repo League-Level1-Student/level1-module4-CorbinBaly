@@ -36,7 +36,7 @@ public class get_latest_tweet implements MouseListener, ActionListener {
 		frame.setDefaultCloseOperation(0);
 		frame.pack();
 	}
-
+//The external jars are not working/are broken.
 	private String getLatestTweet(String searchingFor) {
 		System.out.println("It's working");
 		Twitter twitter = new TwitterFactory().getInstance();

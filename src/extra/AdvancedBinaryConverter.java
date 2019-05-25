@@ -20,6 +20,7 @@ public class AdvancedBinaryConverter implements ActionListener {
 	JTextField asciiResult;
 	JTextField inputTextField;
 	JButton convertButton;
+	JLabel ASCII;
 
 	public static void main(String[] args) {
 		new AdvancedBinaryConverter().start();
@@ -36,74 +37,79 @@ public class AdvancedBinaryConverter implements ActionListener {
 		convertButton = new JButton();
 
 		// 1. Make the frame show up
-
+		frame.setVisible(true);
 		// 2. Give your frame a title
-		
+		frame.setTitle("Advanced Binary Converter");
 		// 3. Add your panel to the frame
-		
-		// 4. Call the addObjectToPanel() method to add inputTextField to row 0, column 0
-		//    of the panel and span 2 columns, addObjectToPanel(inputTextField, 0, 0, 2);
-		
+		frame.add(panel);
+		// 4. Call the addObjectToPanel() method to add inputTextField to row 0, column
+		// 0
+		// of the panel and span 2 columns, addObjectToPanel(inputTextField, 0, 0, 2);
+		addObjectToPanel(inputTextField, 0, 0, 2);
 		// 5. Set the convertButton text to "convert"
-		
+		convertButton.setText("convert");
 		// 6. Add an action listener to convertButton
-		
+		convertButton.addActionListener(this);
 		// 7. Call the addObjectToPanel() method to add convertButton to row 1, column 0
-		//    of the panel with a cellWidth of 2
-
+		// of the panel with a cellWidth of 2
+		addObjectToPanel(convertButton, 1, 0, 2);
 		// 8. Create a new JLabel with the text "ASCII:"
-
+		ASCII = new JLabel();
 		// 9. Call the addObjectToPanel() method to add the new label to row 2, column 0
-		//    of the panel with a cellWidth of 1
-		
+		// of the panel with a cellWidth of 1
+		addObjectToPanel(ASCII, 2, 0, 1);
 		// 10. Add asciiResult to the panel next to JLabel from step 8.
-		
+		addObjectToPanel(asciiResult, 2, 1, 1);
 		// 11. Create a new JLabel with the text "Decimal:"
-		
+		JLabel Decimal = new JLabel();
 		// 12. Add the label from step 11. to row 3, column 0 of the panel
-		
+		addObjectToPanel(Decimal, 3, 0, 1);
 		// 13. Add the decimalResult JTextField to the panel next to label from step 11.
-		
+		addObjectToPanel(decimalResult, 3, 1, 2);
 		// 14. Create a new JLabel with the text "Hexidecimal:"
-		
+		JLabel Hexidecimal = new JLabel();
 		// 15. Add the label from step 14. to row 4, column 0 of the panel
-		
+		addObjectToPanel(Hexidecimal, 4, 0, 2);
 		// 16. Add the hexResult JTextField to the panel next to the label from step 14.
-		
+		addObjectToPanel(hexResult, 4, 1, 2);
 		// 17. Pack the frame
+		frame.pack();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 
 		// 18. If convertButton was pressed...
-		
-			// 19. Get the text from inputTextField and save it to a new String variable
-			
-			// 20. Call binaryToAscii() with the text from step 19 and save the result in a new String variable
-			
-			// 21. Set the text of asciiResult to the new String
-			
-			// 22. Call binaryToInt() with the text from step 19 and save the result in a new String variable
-			
-			// 23. Set the text of decimalResult to the new String
-			
-			// 24. Call binaryToHex() with the text from step 19 and save the result in a new String variable
-			
-			// 25. Set the text of hexResult to the new String
-			
-			// OPTIONAL: Create your own methods to convert binary to decimal (base 10) and
-			//           binary to hexidecimal (base 16) without using the Integer.parseInt() method!
+
+		// 19. Get the text from inputTextField and save it to a new String variable
+		String basic = inputTextField.getText();
+		// 20. Call binaryToAscii() with the text from step 19 and save the result in a
+		// new String variable
+		String Ascii = binaryToAscii(basic);
+		// 21. Set the text of asciiResult to the new String
+		asciiResult.setText(Ascii);
+		// 22. Call binaryToInt() with the text from step 19 and save the result in a
+		// new String variable
+		String Int = binaryToInt(basic);
+		// 23. Set the text of decimalResult to the new String
+		decimalResult.setText(Int);
+		// 24. Call binaryToHex() with the text from step 19 and save the result in a
+		// new String variable
+		String Hex = binaryToHex(basic);
+		// 25. Set the text of hexResult to the new String
+		hexResult.setText(Hex);
+		// OPTIONAL: Create your own methods to convert binary to decimal (base 10) and
+		// binary to hexidecimal (base 16) without using the Integer.parseInt() method!
 	}
 
 	void addObjectToPanel(JComponent component, int row, int column, int cellWidth) {
 		GridBagConstraints constraints = new GridBagConstraints();
 
-		constraints.fill = GridBagConstraints.HORIZONTAL;		// This expands the JComponent to fill gridwidth
-		constraints.gridx = column;				// This is the column the JComponent is placed
-		constraints.gridy = row;				// This is the row the JComponent is placed
-		constraints.gridwidth = cellWidth;		// This is how many horizontal cells to span across
-		constraints.gridheight = 1;				// This is how many vertical cells to span across
+		constraints.fill = GridBagConstraints.HORIZONTAL; // This expands the JComponent to fill gridwidth
+		constraints.gridx = column; // This is the column the JComponent is placed
+		constraints.gridy = row; // This is the row the JComponent is placed
+		constraints.gridwidth = cellWidth; // This is how many horizontal cells to span across
+		constraints.gridheight = 1; // This is how many vertical cells to span across
 		this.panel.add(component, constraints);
 	}
 
