@@ -13,10 +13,10 @@ public class WhackAMole implements ActionListener {
 	JPanel panel;
 	Random rand = new Random();
 	JButton molebutton;
-	int value;
 	int whacked = 0;
 	int missed = 0;
 	Date start = new Date();
+	int value = rand.nextInt(23);
 
 	public void makeFrame() {
 		frame = new JFrame();
@@ -62,6 +62,7 @@ public class WhackAMole implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton clicked = (JButton) e.getSource();
+		value = rand.nextInt(23);
 		if (clicked.getText().equals("Mole")) {
 			speak("I'm so proud!");
 			whacked++;
@@ -73,8 +74,8 @@ public class WhackAMole implements ActionListener {
 		if (whacked == 10) {
 			endGame(start, whacked);
 		}
-		if(missed>=5) {
-		JOptionPane.showMessageDialog(null, "You lost!");	
+		if (missed >= 5) {
+			JOptionPane.showMessageDialog(null, "You lost!");
 		}
 		makeFrame();
 	}
