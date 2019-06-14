@@ -16,19 +16,37 @@ public class SlotMachine implements ActionListener {
 	JPanel panel;
 	JButton spin;
 	Random randone = new Random();
+	Random randtwo = new Random();
+	Random randthree = new Random();
 	JLabel secondroll;
 	JLabel thirdroll;
 	JLabel firstroll;
-	int firstone = 0;
-	int firsttwo = 1;
-	int firstthree = 2;
 	JLabel Orange;
 	JLabel Watermelon;
 	JLabel Cherry;
-public void start() {
-	makeImages();
-	makeFrame();
-}
+
+	public void start() {
+		try {
+			firstroll = createLabelImage("Cherry.png");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			secondroll = createLabelImage("Orange.png");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			thirdroll = createLabelImage("Watermelonp.png");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		makeFrame();
+	}
+
 	public void makeFrame() {
 		frame = new JFrame();
 		panel = new JPanel();
@@ -39,11 +57,11 @@ public void start() {
 	}
 
 	public void addStuff() {
-		frame.add(panel);
 		panel.add(spin);
 		panel.add(firstroll);
 		panel.add(secondroll);
 		panel.add(thirdroll);
+		frame.add(panel);
 		spin.addActionListener(this);
 	}
 
@@ -53,29 +71,7 @@ public void start() {
 		spin.setText("Spin");
 	}
 
-	public void makeImages() {
-		try {
-			Cherry = createLabelImage("Cherry.png");
-			firstroll = Cherry;
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			Orange = createLabelImage("Orange.png");
-			secondroll = Orange;
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			Watermelon = createLabelImage("Watermelonp.png");
-			thirdroll = Watermelon;
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+		
 
 	private JLabel createLabelImage(String fileName) throws MalformedURLException {
 		URL imageURL = getClass().getResource(fileName);
@@ -87,39 +83,85 @@ public void start() {
 		JLabel imageLabel = new JLabel(icon);
 		return imageLabel;
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		int valueone = randone.nextInt(2);
-		int valuetwo = randone.nextInt(2);
-		int valuethree = randone.nextInt(2);
+	public void changeImage() {
+		int valueone = randone.nextInt(3);
+		int valuetwo = randone.nextInt(3);
+		int valuethree = randone.nextInt(3);
 		// TODO Auto-generated method stub
 		System.out.println(valueone);
 		System.out.println(valuetwo);
 		System.out.println(valuethree);
-		if (firstone == valueone) {
-			firstroll = Orange;
-		} else if (firstone == valuetwo) {
-			firstroll = Watermelon;
-		} else if (firstone == valuethree) {
-			firstroll = Cherry;
+		if (valueone == 0) {
+			try {
+				firstroll = createLabelImage("Orange.png");
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} else if (valueone == 1) {
+			try {
+				firstroll = createLabelImage("Watermelonp.png");
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} else if (valueone == 2) {
+			try {
+				firstroll = createLabelImage("Cherry.png");
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
-		if (firsttwo == valueone) {
-			secondroll = Orange;
-		} else if (firsttwo == valuetwo) {
-			secondroll = Watermelon;
-		} else if (firsttwo == valuethree) {
-			secondroll = Cherry;
+		if (valuetwo == 0) {
+			try {
+				secondroll = createLabelImage("Orange.png");
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} else if (valuetwo == 1) {
+			try {
+				secondroll = createLabelImage("Watermelonp.png");
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} else if (valuetwo == 2) {
+			try {
+				secondroll = createLabelImage("Cherry.png");
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
-		if (firstthree == valueone) {
-			thirdroll = Orange;
-		} else if (firstthree == valuetwo) {
-			thirdroll = Cherry;
-		} else if (firstthree == valuethree) {
-			thirdroll = Watermelon;
+		if (valuethree == 0) {
+			try {
+				thirdroll = createLabelImage("Orange.png");
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} else if (valuethree == 1) {
+			try {
+				thirdroll = createLabelImage("Cherry.png");
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} else if (valuethree == 2) {
+			try {
+				thirdroll = createLabelImage("Watermelonp.png");
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		changeImage();
 		frame.dispose();
 		makeFrame();
-		frame.repaint();
 	}
 }
